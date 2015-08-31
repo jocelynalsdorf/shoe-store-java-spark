@@ -108,7 +108,7 @@ public class Task {
 
   public void markCompleted() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE tasks SET completed = true WHERE task_id = :taskId";
+      String sql = "UPDATE tasks SET completed = true WHERE id = :taskId";
         con.createQuery(sql)
         .addParameter("taskId", this.getId())
         .executeUpdate();
