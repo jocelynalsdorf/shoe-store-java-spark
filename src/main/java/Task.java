@@ -5,9 +5,15 @@ import java.util.ArrayList;
 public class Task {
   private int id;
   private String description;
+  private boolean completed;
+
 
   public int getId() {
     return id;
+  }
+
+  public boolean getCompleted() {
+    return completed;
   }
 
   public String getDescription() {
@@ -99,6 +105,17 @@ public class Task {
           .executeUpdate();
     }
   }
+
+  public void markCompleted() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE tasks SET completed = true WHERE task_id = :taskId";
+        con.createQuery(sql)
+        .addParameter("taskId", this.getId())
+        .executeUpdate();
+
+    }
+  }
+
 
 
 

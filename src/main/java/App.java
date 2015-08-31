@@ -92,5 +92,20 @@ public class App {
         return null;
       });
 
+      //attempt "completed-route for tasks"
+
+      post("/tasks/:taskId/complete", (request, response) -> {
+        int taskId = Integer.parseInt(request.queryParams("task_id"));
+        int checkedId = Integer.parseInt(request.queryParams("checked_id"));
+        int categoryId = Integer.parseInt(request.queryParams("category_id"));
+        Category category = Category.find(categoryId);
+        Task task = Task.find(taskId);
+        task.markCompleted();
+        //category.addTask(task);
+        response.redirect("/categories/" + categoryId);
+        return null;
+      });
+
+
  }//end of main
 }//end appclass
