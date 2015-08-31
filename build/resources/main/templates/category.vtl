@@ -10,11 +10,12 @@
      #end
         <form action="/tasks/$task.getId()/complete" method="post">
             <label>
+             <input id="catrgory_id"  type="hidden" name="category_id" value="$category.getId()">
               <input id="checked_id"  type="hidden" name="task_id" value="$task.getId()">
             </label>
             <button type="submit" class="btn btn-info">Check as Complete</button>
         </form>
-        <p><a href="$category.getId()/tasks/$task.getId()/update">Edit this task</a></p>
+       
       </li>
     #end
   </ul>

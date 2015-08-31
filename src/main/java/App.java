@@ -95,14 +95,13 @@ public class App {
 
       post("/tasks/:taskId/complete", (request, response) -> {
         int taskId = Integer.parseInt(request.queryParams("task_id"));
-        //int checkedId = Integer.parseInt(request.queryParams("checked_id"));
-        //int categoryId = Integer.parseInt(request.queryParams("category_id"));
-        //Category category = Category.find(categoryId);
+        int categoryId = Integer.parseInt(request.queryParams("category_id"));
+        Category category = Category.find(categoryId);
         Task task = Task.find(taskId);
         task.markCompleted();
         //category.addTask(task);
-        //response.redirect("/categories/" + categoryId);
-        response.redirect("/");
+        response.redirect("/categories/" + categoryId);
+        //response.redirect("/");
         return null;
       });
 
@@ -139,40 +138,76 @@ public class App {
 
 //get form to update/delete for tasks:
 
-      get("/categories/:category_id/tasks/:id/update", (request, response) -> {
+      // get("/categories/:category_id/tasks/:id/update", (request, response) -> {
+      //   HashMap<String, Object> model = new HashMap<String, Object>();
+      //   Category category = Category.find(Integer.parseInt(request.params(":category_id")));
+      //   Task task = Task.find(Integer.parseInt(request.params(":id"))); 
+      //   model.put("category", category);
+      //   model.put("task", task); 
+      //   model.put("template", "templates/edit-task.vtl");
+      //   return new ModelAndView(model, layout);
+      // }, new VelocityTemplateEngine());
+
+      post("/tasks/:id/update", (request, response) -> {
+        int taskId = Integer.parseInt(request.params(":id"));
+       // int categoryId = Integer.parseInt(request.params(":category_id"));
+       // Category category = Category.find(categoryId);
+        Task task = Task.find(taskId);
+        String description = request.queryParams("description");
+        task.update(description);
+        response.redirect("/tasks/" + taskId);
+        //response.redirect("/");
+        return null;
+      });
+      
+       get("/tasks/:id/update", (request, response) -> {
         HashMap<String, Object> model = new HashMap<String, Object>();
-        Category category = Category.find(Integer.parseInt(request.params(":category_id")));
+        //Category category = Category.find(Integer.parseInt(request.params(":category_id")));
         Task task = Task.find(Integer.parseInt(request.params(":id"))); 
-        model.put("category", category);
+       // model.put("category", category);
         model.put("task", task); 
         model.put("template", "templates/edit-task.vtl");
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-//post routes to update/delete tasks
-      post("/:category_id/tasks/:id/update", (request, response) -> {
+       post("/tasks/:id/delete", (request, response) -> {
         int taskId = Integer.parseInt(request.params(":id"));
-        int categoryId = Integer.parseInt(request.params(":category_id"));
-        Category category = Category.find(categoryId);
+        //int categoryId = Integer.parseInt(request.params(":category_id"));
+        //Category category = Category.find(categoryId);
         Task task = Task.find(taskId);
-        String description = request.queryParams("description");
-        task.update(description);
-        response.redirect("/categories/" + categoryId);
+        task.delete();
+         //model.put("categories", Category.all());
+        response.redirect("/tasks");
         //response.redirect("/");
         return null;
       });
 
-      post("/:category_id/tasks/:id/delete", (request, response) -> {
-        int taskId = Integer.parseInt(request.params(":id"));
-        int categoryId = Integer.parseInt(request.params(":category_id"));
-        Category category = Category.find(categoryId);
-        Task task = Task.find(taskId);
-        task.delete();
-         //model.put("categories", Category.all());
-        response.redirect("/categories/" + categoryId);
-        //response.redirect("/");
-        return null;
-      });
+//Because methods actually delete cat and task from all parts of DB it makes no sense to allow for editing task/deleting task from category page and vice versa
+//
+// //post routes to update/delete tasks
+//       post("/:category_id/tasks/:id/update", (request, response) -> {
+//         int taskId = Integer.parseInt(request.params(":id"));
+//         int categoryId = Integer.parseInt(request.params(":category_id"));
+//         Category category = Category.find(categoryId);
+//         Task task = Task.find(taskId);
+//         String description = request.queryParams("description");
+//         task.update(description);
+//         response.redirect("/categories/" + categoryId);
+//         //response.redirect("/");
+//         return null;
+//       });
+
+//       post("/:category_id/tasks/:id/delete", (request, response) -> {
+//         int taskId = Integer.parseInt(request.params(":id"));
+//         int categoryId = Integer.parseInt(request.params(":category_id"));
+//         Category category = Category.find(categoryId);
+//         Task task = Task.find(taskId);
+//         task.delete();
+//          //model.put("categories", Category.all());
+//         response.redirect("/categories/" + categoryId);
+//         //response.redirect("/");
+//         return null;
+//       });
       
 
 
