@@ -91,8 +91,7 @@ public class App {
         response.redirect("/tasks/" + taskId);
         return null;
       });
-
-      //attempt "completed-route for tasks"
+ //mark as "completed-route for tasks"
 
       post("/tasks/:taskId/complete", (request, response) -> {
         int taskId = Integer.parseInt(request.queryParams("task_id"));
@@ -104,6 +103,30 @@ public class App {
         //category.addTask(task);
         //response.redirect("/categories/" + categoryId);
         response.redirect("/");
+        return null;
+      });
+//update get form to update delete for tasks:
+
+      get("/categories/:category_id/tasks/:id/update", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Category category = Category.find(Integer.parseInt(request.params(":category_id")));
+        Task task = Task.find(Integer.parseInt(request.params(":id"))); 
+        model.put("category", category);
+        model.put("task", task); 
+        model.put("template", "templates/edit-task.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+
+      post("/:category_id/tasks/:id/update", (request, response) -> {
+        int taskId = Integer.parseInt(request.params(":id"));
+        int categoryId = Integer.parseInt(request.params(":category_id"));
+        Category category = Category.find(categoryId);
+        Task task = Task.find(taskId);
+        String description = request.queryParams("description");
+        task.update(description);
+        response.redirect("/categories/" + categoryId);
+        //response.redirect("/");
         return null;
       });
 
