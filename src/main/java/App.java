@@ -130,6 +130,21 @@ public class App {
         return null;
       });
 
+      post("/:category_id/tasks/:id/delete", (request, response) -> {
+        int taskId = Integer.parseInt(request.params(":id"));
+        int categoryId = Integer.parseInt(request.params(":category_id"));
+        Category category = Category.find(categoryId);
+        Task task = Task.find(taskId);
+        task.delete();
+         //model.put("categories", Category.all());
+        response.redirect("/categories/" + categoryId);
+        //response.redirect("/");
+        return null;
+      });
+      
+
+
+
 
  }//end of main
 }//end appclass
