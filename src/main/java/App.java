@@ -118,13 +118,24 @@ public class App {
 //post routes to update/delete categories
 
       post("/categories/:id/update", (request, response) -> {
-          HashMap<String, Object> model = new HashMap<String, Object>();
-          Category category = Category.find(Integer.parseInt(request.params(":id")));
-          String name = request.queryParams("name");
-          category.update(name);
-          response.redirect("/categories/" + category.getId());
-          return null;
-        });
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Category category = Category.find(Integer.parseInt(request.params(":id")));
+        String name = request.queryParams("name");
+        category.update(name);
+        response.redirect("/categories/" + category.getId());
+        return null;
+      });
+
+       post("/categories/:id/delete", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Category category = Category.find(Integer.parseInt(request.params(":id")));
+        //model.put("template", "templates/index.vtl");
+        category.delete();
+        //model.put("stylists", Stylist.all());
+        response.redirect("/");
+        return null;
+         });
+
 
 //get form to update/delete for tasks:
 
