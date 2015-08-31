@@ -4,7 +4,10 @@
   <p>Here are the tasks for this category:</p>
   <ul>
     #foreach($task in $category.getTasks())
-      <li>$task.getDescription()
+      <li>$task.getDescription() 
+    #if ($task.getCompleted())
+     <span>This task is completed!!Whoot!!</span>
+     #end
         <form action="/tasks/$task.getId()/complete" method="post">
             <label>
               <input id="checked_id"  type="hidden" name="task_id" value="$task.getId()">

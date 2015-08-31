@@ -13,7 +13,7 @@ public class Task {
   }
 
   public boolean getCompleted() {
-    return completed;
+      return completed;
   }
 
   public String getDescription() {
@@ -112,7 +112,6 @@ public class Task {
         con.createQuery(sql)
         .addParameter("taskId", this.getId())
         .executeUpdate();
-
     }
   }
 
