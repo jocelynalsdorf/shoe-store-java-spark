@@ -105,7 +105,28 @@ public class App {
         response.redirect("/");
         return null;
       });
-//update get form to update delete for tasks:
+
+//get form to update categories
+     get("/categories/:id/update", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Category category = Category.find(Integer.parseInt(request.params(":id")));
+        model.put("category", category);
+        model.put("template", "templates/edit-category.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+//post routes to update/delete categories
+
+      post("/categories/:id/update", (request, response) -> {
+          HashMap<String, Object> model = new HashMap<String, Object>();
+          Category category = Category.find(Integer.parseInt(request.params(":id")));
+          String name = request.queryParams("name");
+          category.update(name);
+          response.redirect("/categories/" + category.getId());
+          return null;
+        });
+
+//get form to update/delete for tasks:
 
       get("/categories/:category_id/tasks/:id/update", (request, response) -> {
         HashMap<String, Object> model = new HashMap<String, Object>();
@@ -117,7 +138,7 @@ public class App {
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-
+//post routes to update/delete tasks
       post("/:category_id/tasks/:id/update", (request, response) -> {
         int taskId = Integer.parseInt(request.params(":id"));
         int categoryId = Integer.parseInt(request.params(":category_id"));
