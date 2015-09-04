@@ -1,16 +1,21 @@
-<h1>Task list!</h1>
+<div class="row">
+  <h1>All Stores</h1>
+<div class="col-md-3"></div>
+  <div class="col-md-6">
 
-<p>Add a new task:</p>
+    <p>Add a new brand:</p>
+    <form action="/brands" method="post">
+      <label for="description">Brand Description</label>
+      <input id="description" name="description" type="text">
 
-<form action="/tasks" method="post">
-  <label for="description">Task Description</label>
-  <input id="description" name="description" type="text">
+      <button type="submit" class="btn btn-info">Add Brand</button>
+    </form>
 
-  <button type="submit">Add task</button>
-</form>
+    #foreach ($brand in $brands)
+      <li><a href="/brands/$brand.getId()">$brand.getDescription()</a></li>
+    #end
 
-#foreach ($task in $tasks)
-  <li><a href="/tasks/$task.getId()">$task.getDescription()</a></li>
-#end
-
-<p><a href='/'>Home</a></p>
+  </div>
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
+</div>

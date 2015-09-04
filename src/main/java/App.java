@@ -18,7 +18,7 @@ public class App {
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
 
-     get("/bBrands", (request, response) -> {
+     get("/brands", (request, response) -> {
        HashMap<String, Object> model = new HashMap<String, Object>();
        List<Brand> brands = Brand.all();
        model.put("brands", brands);
@@ -34,7 +34,23 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+     post("/brands", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        String description = request.queryParams("description");
+        Brand newBrand = new Brand(description);
+        newBrand.save();
+        response.redirect("/brands");
+        return null;
+      });
 
+      post("/stores", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        String name = request.queryParams("name");
+        Store newStore = new Store(name);
+        newStore.save();
+        response.redirect("/stores");
+        return null;
+      });
 
 
  }//end of main

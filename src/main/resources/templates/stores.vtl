@@ -1,16 +1,22 @@
-<h1>Categories list!</h1>
+<div class="row">
+  <h1>All Stores</h1>
+<div class="col-md-3"></div>
+  <div class="col-md-6">
 
-<p>Add a new category:</p>
+    <p>Add a new store:</p>
 
-<form action="/categories" method="post">
-  <label for="name">Category Name</label>
-  <input id="name" name="name" type="text">
+    <form action="/stores" method="post">
+      <label for="name">Store Name</label>
+      <input id="name" name="name" type="text">
 
-  <button type="submit">Add category</button>
-</form>
+      <button type="submit" class="btn btn-info">Add Store</button>
+    </form>
 
-#foreach ($category in $categories)
-  <li><a href="/categories/$category.getId()">$category.getName()</a></li>
-#end
+    #foreach ($store in $stores)
+      <p><a href="/stores/$store.getId()">$store.getName()</a></p>
+    #end
 
-<p><a href='/'>Home</a></p>
+  </div>
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
+</div>

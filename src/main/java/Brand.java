@@ -77,7 +77,6 @@ public class Brand {
     }
   }
 
-
   // public ArrayList<Store> getStores() {
   //   try(Connection con = DB.sql2o.open()) {
   //     String sql = "SELECT store_id FROM stores_brands WHERE brand_id = :brand_id";
