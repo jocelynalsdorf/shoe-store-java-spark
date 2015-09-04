@@ -1,25 +1,22 @@
-<br>
-<br>
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8 well">
+ <h1>$store.getName()</h1>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
 
-    <h3>Update $category.getName()</h3>
-
-    <form action="/categories/$category.getId()/update" method="post">
+    <form action="/stores/$store.getId()/update" method="post">
       <div class="form-group">
-        <label for="name">Update Category</label>
+        <label for="name">Update Store</label>
         <input id="name" name="name" type="text" class="form-control">
       </div>
     <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
 <br>
-   <form action="/categories/$category.getId()/delete" method="post">
-      <button type="submit" class="btn btn-danger $category.getName()">Delete Category</button>
+   <form action="/stores/$store.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger $store.getName()">Delete Store</button>
     </form>
 
-
-  </div>
-  <div class="col-md-2"></div>  
+</div>
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
 </div>

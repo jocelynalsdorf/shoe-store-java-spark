@@ -94,6 +94,32 @@ public class App {
         response.redirect("/brands/" + brandId);
         return null;
       });
+//get form to update/delete stores 
+      get("/stores/:id/update", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Store store = Store.find(Integer.parseInt(request.params(":id")));
+        model.put("store", store);
+        model.put("template", "templates/edit-store.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+//post routes to update/delete stores 
+      post("/stores/:id/update", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Store store = Store.find(Integer.parseInt(request.params(":id")));
+        String name = request.queryParams("name");
+        store.update(name);
+        response.redirect("/stores/" + store.getId());
+        return null;
+      });
+
+      post("/stores/:id/delete", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Store store = Store.find(Integer.parseInt(request.params(":id"))); 
+        store.delete();
+        response.redirect("/");
+        return null;
+      });     
 
 
  }//end of main
