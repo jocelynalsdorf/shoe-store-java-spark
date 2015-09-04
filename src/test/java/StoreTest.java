@@ -62,4 +62,25 @@ public class StoreTest {
     assertEquals(savedBrands.size(), 1);
   }
 
+  @Test
+    public void delete_deletesAllListsAndStoresBrandsAssociations() {
+      Store myStore = new Store("Hanks");
+      myStore.save();
+
+      Brand myBrand = new Brand("Mow");
+      myBrand.save();
+
+      myStore.addBrand(myBrand);
+      myStore.delete();
+      assertEquals(myBrand.getStores().size(), 0);
+    }
+
+  @Test
+    public void update_updateStoreInfo() {
+     Store savedStore = new Store("Khao");
+     savedStore.save();
+     savedStore.update("McDonalds");
+     assertTrue(Store.all().get(0).getName().equals("McDonalds"));
+    }
+
 }//end of class

@@ -85,5 +85,29 @@ public class Store {
     }
   }
 
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM stores WHERE id = :id";
+        con.createQuery(deleteQuery)
+        .addParameter("id", id)
+        .executeUpdate();
+
+      String joinDeleteQuery = "DELETE FROM stores_brands WHERE store_id =:storeId";
+      con.createQuery(joinDeleteQuery)
+      .addParameter("storeId", this.getId())
+      .executeUpdate();
+    }
+  }
+
+    public void update(String name) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "UPDATE stores SET name = :name WHERE id = :id";
+        con.createQuery(sql)
+          .addParameter("name", name)
+          .addParameter("id", id)
+          .executeUpdate();
+      }
+    }
+
 
 }//end of class
