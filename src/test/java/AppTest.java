@@ -92,6 +92,34 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Adidas");
   }
 
+  @Test
+  public void allbrandsDisplayDescriptionOnStorePage() {
+    Store myStore = new Store("Wally");
+    myStore.save();
+    Brand firstBrand = new Brand("nike");
+    firstBrand.save();
+    Brand secondBrand = new Brand("pony");
+    secondBrand.save();
+    String storePath = String.format("http://localhost:4567/stores/%d", myStore.getId());
+    goTo(storePath);
+    assertThat(pageSource()).contains("nike");
+    assertThat(pageSource()).contains("pony");
+  }
+  
+  @Test
+  public void allstoresDisplayDescriptionOnBrandPage() {
+    Brand myBrand = new Brand("nike");
+    myBrand.save();
+    Store firstStore = new Store("target");
+    firstStore.save();
+    Store secondStore = new Store("wally");
+    secondStore.save();
+    String brandPath = String.format("http://localhost:4567/brands/%d", myBrand.getId());
+    goTo(brandPath);
+    assertThat(pageSource()).contains("target");
+    assertThat(pageSource()).contains("wally");
+  }
+
 
 
 
