@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-archivesBaseName = "To-Do-SQLmany-to-many-homework"
+archivesBaseName = "shoe-store"
 version = '1.0'
 mainClassName = "App"
 
