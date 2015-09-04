@@ -51,6 +51,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).doesNotContain("Target");
   }
 
+  @Test
+  public void storeIsUpdated() {
+    Store myStore = new Store("Target");
+    myStore.save();
+    String storePath = String.format("http://localhost:4567/stores/%d/update", myStore.getId());
+    goTo(storePath);
+    fill("#name").with("Tarjay");
+    submit(".btn-success");
+    assertThat(pageSource()).contains("Tarjay");
+  }
+
+
 
 
 }//end of test class

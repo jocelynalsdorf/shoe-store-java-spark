@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BrandTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2015-09-04T16:52:14" hostname="josss-MacBook-Pro.local" time="0.223">
+<testsuite name="BrandTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2015-09-04T16:54:27" hostname="josss-MacBook-Pro.local" time="0.273">
   <properties/>
-  <testcase name="equals_returnsTrueIfDescriptionsAretheSame" classname="BrandTest" time="0.017"/>
-  <testcase name="save_returnsTrueIfDescriptionsAretheSame" classname="BrandTest" time="0.025"/>
-  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.012"/>
-  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.019"/>
-  <testcase name="getStores_returnsAllStores_ArrayList" classname="BrandTest" time="0.034"/>
-  <testcase name="update_updateBrandInfo" classname="BrandTest" time="0.024"/>
-  <testcase name="save_assignsIdToObject" classname="BrandTest" time="0.02"/>
-  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.03"/>
-  <testcase name="delete_deletesALlBrandsAndListsAssociations" classname="BrandTest" time="0.039"/>
+  <testcase name="equals_returnsTrueIfDescriptionsAretheSame" classname="BrandTest" time="0.008"/>
+  <testcase name="save_returnsTrueIfDescriptionsAretheSame" classname="BrandTest" time="0.035"/>
+  <testcase name="all_emptyAtFirst" classname="BrandTest" time="0.014"/>
+  <testcase name="find_findsBrandInDatabase_true" classname="BrandTest" time="0.018"/>
+  <testcase name="getStores_returnsAllStores_ArrayList" classname="BrandTest" time="0.053"/>
+  <testcase name="update_updateBrandInfo" classname="BrandTest" time="0.026"/>
+  <testcase name="save_assignsIdToObject" classname="BrandTest" time="0.019"/>
+  <testcase name="addStore_addsStoreToBrand" classname="BrandTest" time="0.032"/>
+  <testcase name="delete_deletesALlBrandsAndListsAssociations" classname="BrandTest" time="0.064"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
