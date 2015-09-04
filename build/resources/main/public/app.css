@@ -1,12 +1,100 @@
 h1{
+  font-family: 'Fredoka One', cursive;
+  font-size: 50px;
   text-align: center;
-  color: #4B4237;
+  color: #9197AE;
+}
+
+h2{
+  font-family: 'Fredoka One', cursive;
+  font-size: 35px;
+  text-align: center;
+  color: #49197AE;
+}
+
+h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 28px;
+  text-align: center;
+  color: #F02D3A;
+}
+a {
+  color: #9197AE;
+}
+.btn-links {
+  background-color: #9197AE;
+  border-color: #9197AE;
+}
+
+.btn-links a {
+  color: white;
 }
 
 .well {
-  background-color: #EDE7D9;
+  background-color: #EFF6EE;
 }
 
 body {
-  background-color: #A49694;
+  background-color: #fff;
+}
+.btn-default{
+  background-color: #F02D3A;
+  border-color:#F02D3A;
+  color: white;
+}
+
+.btn-default:hover{
+  background-color: #F02D3A;
+  border-color:#F02D3A;
+  color: white;
+}
+.btn-default a{
+  color: white;
+}
+
+.navbar-default {
+  background-color: #273043;
+  color:#EFF6EE;
+}
+
+.btn-info {
+  background-color: #273043;
+  border-color: #273043;
+  color: #EFF6EE;
+}
+
+.btn-info:hover{
+  background-color: #F02D3A;
+  border-color:#F02D3A;
+  color: white;
+}
+.btn-success{
+  background-color: #273043;
+  border-color:#273043;
+  color: white;
+}
+
+.btn-success:hover{
+  background-color: #9197AE;
+  border-color:#9197AE;
+  color: white;
+}
+.btn-danger {
+  background-color: #F02D3A;
+  border-color:#F02D3A;
+  color: white;
+}
+
+.navbar-right {
+    float: right!important;
+    margin-right: 10px;
+}
+
+.navbar-default .navbar-brand {
+  color: red;
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+}
+.container {
+  padding-top: 50px;
 }

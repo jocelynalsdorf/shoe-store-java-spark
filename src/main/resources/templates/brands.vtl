@@ -1,20 +1,23 @@
 <div class="row">
   <h1>All Brands</h1>
 <div class="col-md-3"></div>
-  <div class="col-md-6 well">
+  <div class="col-md-6">
+    <div class="well">
+      <h3>Add a new brand:</h3>
+      <form action="/brands" method="post">
+        <label for="description">Brand Description</label>
+        <input id="description" name="description" type="text">
+        <button type="submit" class="btn btn-info">Add Brand</button>
+      </form>
 
-    <p>Add a new brand:</p>
-    <form action="/brands" method="post">
-      <label for="description">Brand Description</label>
-      <input id="description" name="description" type="text">
-      <button type="submit" class="btn btn-info">Add Brand</button>
-    </form>
-
-    #foreach ($brand in $brands)
-      <li><a href="/brands/$brand.getId()">$brand.getDescription()</a></li>
-    #end
-
+      #foreach ($brand in $brands)
+        <p><a href="/brands/$brand.getId()">$brand.getDescription()</a></p>
+      #end
+      <br>
+      <p class="btn btn-links"><a href='/'>Home</a></p>
+    </div>
+    <img src ="images/circle-shoes.jpg">
   </div>
   <div class="col-md-3"></div>
-  <p><a href='/'>Home</a></p>
+  
 </div>

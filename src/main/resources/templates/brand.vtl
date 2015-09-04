@@ -4,16 +4,16 @@
   <div class="col-md-6 well">
 
     #if($brand.getStores())
-      <p>Here are the store that carry this brand:</p>
-      <ul>
+      <h3>Here are the store that carry this brand:</h3>
+      <ol>
         #foreach($store in $brand.getStores())
           <li>$store.getName()</li>
         #end
-      </ul>
+      </ol>
     #end
-
+    <br>
   <h4>Add a store that carries this brand:</h4>
-
+  <br>
   <form action='/add_stores' method='post'>
       <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
       <label for="store_id">Select a store</label>
@@ -22,12 +22,12 @@
           <option value="$store.getId()"> $store.getName() </option>
         #end
       </select>
-      <button type='submit'>Add store</button>
+      <button type='submit' class="btn btn-info">Add store</button>
   </form>
 
 <p><a href="/brands/$brand.getId()/update">Edit this brand</a></p>
-
+ <p class="btn btn-links"><a href='/'>Home</a></p>
   </div>
   <div class="col-md-3"></div>
-  <p><a href='/'>Home</a></p>
+ 
 </div>

@@ -3,7 +3,7 @@
 Jocelyn Alsdorf
 
 <h3>Description:</h3>
-This app allows a user to enter ] and manage shoe brands and the stores that carry them. Crud funtionality available for both clients and stylists. Data is persisted via postgres/psql. Joing table and join statements used for many-to-many relationships between brand and stores 
+This app allows a user to enter and manage shoe brands and the stores that carry them. Crud funtionality available for both clients and stylists. Data is persisted via postgres/psql. Joing table and join statements used for many-to-many relationships between brand and stores 
 
 
 <h2>Setup instructions:</h2>
