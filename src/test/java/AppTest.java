@@ -26,6 +26,30 @@ public class AppTest extends FluentTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Shoe Stores");
+  }
+
+  @Test
+  public void storeIsDisplayedWhenCreated() {
+    goTo("http://localhost:4567/stores");
+    fill("#name").with("Osh");
+    submit(".btn-info");
+    assertThat(pageSource()).contains("Osh");
+  }
+
+  @Test
+  public void storeIsDeleted() {
+    Store myStore = new Store("Target");
+    myStore.save();
+    String storePath = String.format("http://localhost:4567/stores/%d/update", myStore.getId());
+    goTo(storePath);
+    submit(".btn-danger");
+    click("a", withText("Add or view a store"));
+    assertThat(pageSource()).doesNotContain("Target");
+  }
 
 
 
