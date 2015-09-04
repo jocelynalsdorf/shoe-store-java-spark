@@ -1,0 +1,25 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 well">
+
+    <h3>Update $category.getName()</h3>
+
+    <form action="/categories/$category.getId()/update" method="post">
+      <div class="form-group">
+        <label for="name">Update Category</label>
+        <input id="name" name="name" type="text" class="form-control">
+      </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+<br>
+   <form action="/categories/$category.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger $category.getName()">Delete Category</button>
+    </form>
+
+
+  </div>
+  <div class="col-md-2"></div>  
+</div>

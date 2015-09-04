@@ -14,5 +14,19 @@ public class BrandTest {
     assertEquals(Brand.all().size(), 0);
   }
 
+  @Test
+  public void equals_returnsTrueIfDescriptionsAretheSame() {
+    Brand firstBrand = new Brand("Mow");
+    Brand secondBrand = new Brand("Mow");
+    assertTrue(firstBrand.equals(secondBrand));
+  }
+
+  @Test
+  public void save_returnsTrueIfDescriptionsAretheSame() {
+    Brand myBrand = new Brand("Mow");
+    myBrand.save();
+    assertTrue(Brand.all().get(0).equals(myBrand));
+  }
+
   
 }//end of class
