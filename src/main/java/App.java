@@ -119,7 +119,34 @@ public class App {
         store.delete();
         response.redirect("/");
         return null;
-      });     
+      });  
+
+//get form to update/delete brands
+      get("/brands/:id/update", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Brand brand = Brand.find(Integer.parseInt(request.params(":id"))); 
+        model.put("brand", brand); 
+        model.put("template", "templates/edit-brand.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+//post routes to update/delete a brand
+      post("/brands/:id/delete", (request, response) -> {
+        int brandId = Integer.parseInt(request.params(":id"));
+        Brand brand = Brand.find(brandId);
+        brand.delete();
+        response.redirect("/brands");
+        return null;
+      });
+
+      post("/brands/:id/update", (request, response) -> {
+        int brandId = Integer.parseInt(request.params(":id"));
+        Brand brand = Brand.find(brandId);
+        String description = request.queryParams("description");
+        brand.update(description);
+        response.redirect("/brands/" + brandId);
+        return null;
+      });
 
 
  }//end of main

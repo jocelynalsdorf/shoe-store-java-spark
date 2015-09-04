@@ -1,26 +1,22 @@
-<br>
-<br>
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8 well">
+ <h1>Update $brand.getDescription()</h1>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
 
-    <h3>Update $task.getDescription()</h3>
-
-    <!--<form action="/$category.getId()/tasks/$task.getId()/update" method="post"> -->
-    <form action="/tasks/$task.getId()/update" method="post">
+    <form action="/brands/$brand.getId()/update" method="post">
       <div class="form-group">
-        <label for="description">Update Task</label>
+        <label for="description">Update Brand</label>
         <input id="description" name="description" type="text" class="form-control">
       </div>
     <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
-<br>
-    <form action="/tasks/$task.getId()/delete" method="post">
-      <button type="submit" class="btn btn-danger $task.getDescription()">Delete Task</button>
+    <br>
+    <form action="/brands/$brand.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger $brand.getDescription()">Delete Brand</button>
     </form>
 
-
   </div>
-  <div class="col-md-2"></div>  
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
 </div>
