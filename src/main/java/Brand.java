@@ -87,5 +87,28 @@ public class Brand {
     }
   }
 
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM brands WHERE id = :id";
+        con.createQuery(deleteQuery)
+        .addParameter("id", id)
+        .executeUpdate();
+
+      String joinDeleteQuery = "DELETE FROM stores_brands WHERE brand_id = :brandId";
+        con.createQuery(joinDeleteQuery)
+          .addParameter("brandId", this.getId())
+          .executeUpdate();
+    }
+  }
+
+  public void update(String description) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE brands SET description = :description WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("description", description)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 
 }//end of class

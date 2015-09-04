@@ -66,4 +66,26 @@ public class BrandTest {
     assertEquals(savedStores.size(), 1);
   }
 
+   @Test
+   public void update_updateBrandInfo() {
+     Brand savedBrand = new Brand("Khao");
+     savedBrand.save();
+     savedBrand.update("McDonalds");
+     assertTrue(Brand.all().get(0).getDescription().equals("McDonalds"));
+   }
+
+  // @Test
+  // public void delete_deletesALlBrandsAndListsAssociations() {
+  //   Store myStore = new Store("Hanks");
+  //   myStore.save();
+
+  //   Brand myBrand = new Brand("Mow");
+  //   myBrand.save();
+
+  //   myBrand.addStore(myStore);
+  //   myBrand.delete();
+  //   assertEquals(myStore.getBrands().size(), 0);
+  //   }
+  
+
 }//end of class
