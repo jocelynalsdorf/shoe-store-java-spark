@@ -15,14 +15,14 @@
   <h4>Add a store that carries this brand:</h4>
   <br>
   <form action='/add_stores' method='post'>
-      <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
-      <label for="store_id">Select a store</label>
-      <select id='store_id' name='store_id' type='text'>
-        #foreach($store in $allStores)
-          <option value="$store.getId()"> $store.getName() </option>
-        #end
-      </select>
-      <button type='submit' class="btn btn-info">Add store</button>
+    <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
+    <label for="store_id">Select a store</label>
+    <select id='store_id' name='store_id' type='text'>
+      #foreach($store in $allStores)
+        <option value="$store.getId()"> $store.getName() </option>
+      #end
+    </select>
+    <button type='submit' class="btn btn-info">Add store</button>
   </form>
 
 <p><a href="/brands/$brand.getId()/update">Edit this brand</a></p>
