@@ -1,39 +1,34 @@
-<h1>$category.getName()</h1>
+<div class="row">
+ <h1>$store.getName()</h1>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
 
-#if($category.getTasks())
-  <p>Here are the tasks for this category:</p>
+
+#if($store.getBrands())
+  <p>Here are the brands for this store:</p>
   <ul>
-    #foreach($task in $category.getTasks())
-      <li>$task.getDescription() 
-    #if ($task.getCompleted())
-     <span>This task is completed!!Whoot!!</span>
-     #end
-        <form action="/tasks/$task.getId()/complete" method="post">
-            <label>
-             <input id="catrgory_id"  type="hidden" name="category_id" value="$category.getId()">
-              <input id="checked_id"  type="hidden" name="task_id" value="$task.getId()">
-            </label>
-            <button type="submit" class="btn btn-info">Check as Complete</button>
-        </form>
-       
-      </li>
+    #foreach($brand in $store.getBrands())
+      <li>$brand.getDescription()</li>
     #end
   </ul>
 #end
 
-<h4>Add a task to this category:</h4>
+<h4>Add a brand to this store:</h4>
 
-<form action='/add_tasks' method='post'>
-    <input id="category_id" name="category_id" type="hidden" value="$category.getId()">
-    <label for="task_id">Select a task</label>
-    <select id='task_id' name='task_id' type='text'>
-      #foreach($task in $allTasks)
-        <option value="$task.getId()"> $task.getDescription() </option>
+<form action='/add_brands' method='post'>
+    <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+    <label for="brand_id">Select a brand</label>
+    <select id='brand_id' name='brand_id' type='text'>
+      #foreach($brand in $allBrands)
+        <option value="$brand.getId()"> $brand.getDescription() </option>
       #end
     </select>
-    <button type='submit'>Add task</button>
+    <button type='submit' class="btn btn-info">Add Brand</button>
 </form>
 
-<p><a href="/categories/$category.getId()/update">Edit this category</a></p>
+<p><a href="/stores/$store.getId()/update">Edit this store</a></p>
 
-<p><a href='/'>Home</a></p>
+  </div>
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
+</div>

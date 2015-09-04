@@ -1,27 +1,33 @@
-<h1>$task.getDescription()</h1>
+<div class="row">
+ <h1>$brand.getDescription()</h1>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
 
-#if($task.getCategories())
-  <p>Here are the categories for this task:</p>
-  <ul>
-    #foreach($category in $task.getCategories())
-      <li>$category.getName()</li>
+    #if($brand.getStores())
+      <p>Here are the store that carry this brand:</p>
+      <ul>
+        #foreach($store in $brand.getStores())
+          <li>$store.getName()</li>
+        #end
+      </ul>
     #end
-  </ul>
-#end
 
-<h4>Add a category to this task:</h4>
+  <h4>Add a store that carries this brand:</h4>
 
-<form action='/add_categories' method='post'>
-    <input id="task_id" name="task_id" type="hidden" value="$task.getId()">
-    <label for="category_id">Select a category</label>
-    <select id='category_id' name='category_id' type='text'>
-      #foreach($category in $allCategories)
-        <option value="$category.getId()"> $category.getName() </option>
-      #end
-    </select>
-    <button type='submit'>Add category</button>
-</form>
+  <form action='/add_stores' method='post'>
+      <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
+      <label for="store_id">Select a store</label>
+      <select id='store_id' name='store_id' type='text'>
+        #foreach($store in $allStores)
+          <option value="$store.getId()"> $store.getName() </option>
+        #end
+      </select>
+      <button type='submit'>Add store</button>
+  </form>
 
-<p><a href="/tasks/$task.getId()/update">Edit this task</a></p>
+<p><a href="/brands/$brand.getId()/update">Edit this brand</a></p>
 
-<p><a href='/'>Home</a></p>
+  </div>
+  <div class="col-md-3"></div>
+  <p><a href='/'>Home</a></p>
+</div>
