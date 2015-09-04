@@ -74,18 +74,18 @@ public class BrandTest {
      assertTrue(Brand.all().get(0).getDescription().equals("McDonalds"));
    }
 
-  // @Test
-  // public void delete_deletesALlBrandsAndListsAssociations() {
-  //   Store myStore = new Store("Hanks");
-  //   myStore.save();
+  @Test
+  public void delete_deletesALlBrandsAndListsAssociations() {
+    Store myStore = new Store("Hanks");
+    myStore.save();
 
-  //   Brand myBrand = new Brand("Mow");
-  //   myBrand.save();
+    Brand myBrand = new Brand("Mow");
+    myBrand.save();
 
-  //   myBrand.addStore(myStore);
-  //   myBrand.delete();
-  //   assertEquals(myStore.getBrands().size(), 0);
-  //   }
+    myBrand.addStore(myStore);
+    myBrand.delete();
+    assertEquals(myStore.getBrands().size(), 0);
+    }
   
 
 }//end of class

@@ -35,4 +35,31 @@ public class StoreTest {
     assertTrue(myStore.equals(savedStore));
   }
 
+  @Test
+  public void addBrand_addsBrandToStore() {
+    Store myStore = new Store("Hanks");
+    myStore.save();
+
+    Brand myBrand = new Brand("Mow");
+    myBrand.save();
+
+    myStore.addBrand(myBrand);
+    Brand savedBrand = myStore.getBrands().get(0);
+    assertTrue(myBrand.equals(savedBrand));
+
+  }
+
+  @Test
+  public void getBrands_returnsAllBrands_ArrayList() {
+    Store myStore = new Store("Hanks");
+    myStore.save();
+
+    Brand myBrand = new Brand("Mow");
+    myBrand.save();
+
+    myStore.addBrand(myBrand);
+    List savedBrands = myStore.getBrands();
+    assertEquals(savedBrands.size(), 1);
+  }
+
 }//end of class
