@@ -57,7 +57,35 @@ public class Brand {
     }
   }
 
+  public void addStore(Store store) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stores_brands (store_id, brand_id) VALUES (:store_id, :brand_id)";
+      con.createQuery(sql)
+        .addParameter("store_id", store.getId())
+        .addParameter("brand_id", this.getId())
+        .executeUpdate();
+    }
+  }
 
-  
+  public ArrayList<Store> getStores() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT store_id FROM stores_brands WHERE brand_id = :brand_id";
+      List<Integer> storeIds = con.createQuery(sql)
+        .addParameter("brand_id", this.getId())
+        .executeAndFetch(Integer.class);
+
+        ArrayList<Store> stores = new ArrayList<Store>();
+
+        for(Integer storeId : storeIds) {
+          String brandQuery = "SELECT * FROM stores WHERE id = :storeId";
+          Store store = con.createQuery(brandQuery)
+            .addParameter("storeId", storeId)
+            .executeAndFetchFirst(Store.class);
+          stores.add(store);
+        }
+      return stores;
+    }
+  }
+
 
 }//end of class
