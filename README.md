@@ -12,8 +12,11 @@ Spark
 Gradle
 Java 
 Testing Suite:
+Junit
 FluentLenium
-JUnit
+
+
+
 ---------
 In PSQL:
 CREATE DATABASE shoe_stores;
