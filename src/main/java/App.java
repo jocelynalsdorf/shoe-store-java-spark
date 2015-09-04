@@ -12,30 +12,30 @@ public class App {
    staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    get("/", (request, response) -> {
-     HashMap<String, Object> model = new HashMap<String, Object>();
-     model.put("template", "templates/index.vtl");
-     return new ModelAndView(model, layout);
-   }, new VelocityTemplateEngine());
+      get("/", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        model.put("template", "templates/index.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
 
-     get("/brands", (request, response) -> {
-       HashMap<String, Object> model = new HashMap<String, Object>();
-       List<Brand> brands = Brand.all();
-       model.put("brands", brands);
-       model.put("template", "templates/brands.vtl");
-       return new ModelAndView(model, layout);
-     }, new VelocityTemplateEngine());
+      get("/brands", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        List<Brand> brands = Brand.all();
+        model.put("brands", brands);
+        model.put("template", "templates/brands.vtl");
+        return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
 
-     get("/stores", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      List<Store> stores = Store.all();
-      model.put("stores", stores);
-      model.put("template", "templates/stores.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+      get("/stores", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        List<Store> stores = Store.all();
+        model.put("stores", stores);
+        model.put("template", "templates/stores.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
 
 //post routes to make a new brand or store
-     post("/brands", (request, response) -> {
+      post("/brands", (request, response) -> {
         HashMap<String, Object> model = new HashMap<String, Object>();
         String description = request.queryParams("description");
         Brand newBrand = new Brand(description);
@@ -147,7 +147,6 @@ public class App {
         response.redirect("/brands/" + brandId);
         return null;
       });
-
 
  }//end of main
 }//end appclass

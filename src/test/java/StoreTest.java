@@ -20,6 +20,7 @@ public class StoreTest {
     Store secondStore = new Store("Hanks");
     assertTrue(firstStore.equals(secondStore));
   }
+
   @Test
   public void save_savesIntoDatabase_true() {
     Store myStore = new Store("Hanks");
@@ -46,7 +47,6 @@ public class StoreTest {
     myStore.addBrand(myBrand);
     Brand savedBrand = myStore.getBrands().get(0);
     assertTrue(myBrand.equals(savedBrand));
-
   }
 
   @Test
@@ -77,10 +77,10 @@ public class StoreTest {
 
   @Test
     public void update_updateStoreInfo() {
-     Store savedStore = new Store("Khao");
-     savedStore.save();
-     savedStore.update("McDonalds");
-     assertTrue(Store.all().get(0).getName().equals("McDonalds"));
+      Store savedStore = new Store("Khao");
+      savedStore.save();
+      savedStore.update("McDonalds");
+      assertTrue(Store.all().get(0).getName().equals("McDonalds"));
     }
 
 }//end of class

@@ -4,29 +4,29 @@
   <div class="col-md-6 well">
 
 
-#if($store.getBrands())
-  <p>Here are the brands for this store:</p>
-  <ul>
-    #foreach($brand in $store.getBrands())
-      <li>$brand.getDescription()</li>
+    #if($store.getBrands())
+      <p>Here are the brands for this store:</p>
+      <ul>
+        #foreach($brand in $store.getBrands())
+          <li>$brand.getDescription()</li>
+        #end
+      </ul>
     #end
-  </ul>
-#end
 
-<h4>Add a brand to this store:</h4>
+    <h4>Add a brand to this store:</h4>
 
-<form action='/add_brands' method='post'>
-    <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
-    <label for="brand_id">Select a brand</label>
-    <select id='brand_id' name='brand_id' type='text'>
-      #foreach($brand in $allBrands)
-        <option value="$brand.getId()"> $brand.getDescription() </option>
-      #end
-    </select>
-    <button type='submit' class="btn btn-info">Add Brand</button>
-</form>
-
-<p><a href="/stores/$store.getId()/update">Edit this store</a></p>
+    <form action='/add_brands' method='post'>
+        <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+        <label for="brand_id">Select a brand</label>
+        <select id='brand_id' name='brand_id' type='text'>
+          #foreach($brand in $allBrands)
+            <option value="$brand.getId()"> $brand.getDescription() </option>
+          #end
+        </select>
+        <button type='submit' class="btn btn-info">Add Brand</button>
+    </form>
+    <br>
+    <p><a href="/stores/$store.getId()/update">Edit this store</a></p>
 
   </div>
   <div class="col-md-3"></div>

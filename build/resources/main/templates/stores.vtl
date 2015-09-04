@@ -1,20 +1,20 @@
 <div class="row">
   <h1>All Stores</h1>
-<div class="col-md-3"></div>
-  <div class="col-md-6 well">
+  <div class="col-md-3"></div>
+    <div class="col-md-6 well">
 
-    <p>Add a new store:</p>
+      <p>Add a new store:</p>
 
-    <form action="/stores" method="post">
-      <label for="name">Store Name</label>
-      <input id="name" name="name" type="text">
+      <form action="/stores" method="post">
+        <label for="name">Store Name</label>
+        <input id="name" name="name" type="text">
 
-      <button type="submit" class="btn btn-info">Add Store</button>
-    </form>
+        <button type="submit" class="btn btn-info">Add Store</button>
+      </form>
 
-    #foreach ($store in $stores)
-      <p><a href="/stores/$store.getId()">$store.getName()</a></p>
-    #end
+      #foreach ($store in $stores)
+        <p><a href="/stores/$store.getId()">$store.getName()</a></p>
+      #end
 
   </div>
   <div class="col-md-3"></div>
