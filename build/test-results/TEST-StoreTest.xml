@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StoreTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-09-04T15:29:40" hostname="josss-MacBook-Pro.local" time="0.187">
+<testsuite name="StoreTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-09-04T15:39:38" hostname="josss-MacBook-Pro.local" time="0.199">
   <properties/>
   <testcase name="delete_deletesAllListsAndStoresBrandsAssociations" classname="StoreTest" time="0.038"/>
-  <testcase name="equals_returnsTrueIfNamesAretheSame" classname="StoreTest" time="0.006"/>
-  <testcase name="update_updateStoreInfo" classname="StoreTest" time="0.024"/>
-  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.032"/>
+  <testcase name="equals_returnsTrueIfNamesAretheSame" classname="StoreTest" time="0.007"/>
+  <testcase name="update_updateStoreInfo" classname="StoreTest" time="0.026"/>
+  <testcase name="addBrand_addsBrandToStore" classname="StoreTest" time="0.036"/>
   <testcase name="find_findsStoreInDatabase_true" classname="StoreTest" time="0.019"/>
-  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.012"/>
-  <testcase name="save_savesIntoDatabase_true" classname="StoreTest" time="0.021"/>
-  <testcase name="getBrands_returnsAllBrands_ArrayList" classname="StoreTest" time="0.032"/>
+  <testcase name="all_emptyAtFirst" classname="StoreTest" time="0.013"/>
+  <testcase name="save_savesIntoDatabase_true" classname="StoreTest" time="0.023"/>
+  <testcase name="getBrands_returnsAllBrands_ArrayList" classname="StoreTest" time="0.033"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
