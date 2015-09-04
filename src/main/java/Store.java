@@ -45,6 +45,14 @@ public class Store {
     }
   }
 
- 
+  public static Store find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stores WHERE id=:id";
+      Store store = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Store.class);
+        return store;
+    }
+  }
 
 }//end of class
