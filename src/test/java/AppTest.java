@@ -62,6 +62,36 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Tarjay");
   }
 
+  @Test
+  public void brandIsDisplayedWhenCreated() {
+    goTo("http://localhost:4567/brands");
+    fill("#description").with("Nike");
+    submit(".btn-info");
+    assertThat(pageSource()).contains("Nike");
+  }
+
+  @Test
+  public void brandIsDeleted() {
+    Brand myBrand = new Brand("pony");
+    myBrand.save();
+    String brandPath = String.format("http://localhost:4567/brands/%d/update", myBrand.getId());
+    goTo(brandPath);
+    submit(".btn-danger");
+    // click("a", withText("Add or view a brand"));
+    assertThat(pageSource()).doesNotContain("pony");
+  }
+
+  @Test
+  public void brandIsUpdated() {
+    Brand myBrand = new Brand("adidas");
+    myBrand.save();
+    String brandPath = String.format("http://localhost:4567/brands/%d/update", myBrand.getId());
+    goTo(brandPath);
+    fill("#description").with("Adidas");
+    submit(".btn-success");
+    assertThat(pageSource()).contains("Adidas");
+  }
+
 
 
 
